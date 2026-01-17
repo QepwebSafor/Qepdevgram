@@ -6,7 +6,7 @@ import { PostCardProps } from "@/types";
 import { getTimeAgo } from "@/utils/time";
 import { HeartIcon } from "./HeartIcon";
 
-const DEFAULT_AVATAR = "https://wukhkmtdjitflnubxeos.supabase.co/storage/v1/object/public/images/posts/ai-image-1757022914393.png";
+const DEFAULT_AVATAR = "https://xynshcnkxdliapebmyaz.supabase.co/storage/v1/object/public/images/posts/unnamed-14.jpg";
 
 export function PostCard({ post, currentUserId, onLike, onComment }: PostCardProps) {
   const [commentText, setCommentText] = useState("");
