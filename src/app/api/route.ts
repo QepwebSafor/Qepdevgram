@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const ownerEmail = userData.user.email;
 
     const { data, error } = await resend.emails.send({
-      from: "Qepdev <no-responder@qepdev.com.es>",
+      from: "Qepdev <no-reply@qepdev.com.es>",
       to: [ownerEmail],
       subject: `💬 ${commenterUsername} comentó en tu post`,
       html: `
