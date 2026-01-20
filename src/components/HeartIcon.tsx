@@ -2,7 +2,7 @@ interface HeartIconProps {
   filled?: boolean;
   size?: "sm" | "md";
 }
-
+ {/* Corazoncito */}
 export function HeartIcon({ filled = true, size = "md" }: HeartIconProps) {
   const sizeClass = size === "sm" ? "w-6 h-6" : "w-7 h-7";
 
