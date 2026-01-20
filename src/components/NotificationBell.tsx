@@ -97,9 +97,10 @@ export function NotificationBell() {
 
   if (!userId) return null;
 
+
   return (
     <div className="relative">
-      {/* Botón campana */}
+      {/* Botón campanita */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="relative p-2 hover:bg-foreground/10 rounded-full transition-colors"
