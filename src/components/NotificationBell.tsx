@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/client";
+import { supabase } from "@/lib/client";
 
 interface Notification {
   id: string;
@@ -16,6 +16,14 @@ export function NotificationBell() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
+
+  // track current time in state and update periodically to avoid calling Date.now() during render
+  const [now, setNow] = useState<number>(() => Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 60_000); // refresh every minute
+    return () => clearInterval(id);
+  }, []);
 
   const unreadCount = notifications.filter((n) => !n.read).length;
 
@@ -79,13 +87,13 @@ export function NotificationBell() {
     await supabase
       .from("notifications")
       .update({ read: true })
-      .eq("user_id", userId)
-      .eq("read", false);
-
-    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+  const timeAgo = (date: string) => {
+    const seconds = Math.floor((now - new Date(date).getTime()) / 1000);
+    if (seconds < 60) return "ahora";
+    if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
+    return `${Math.floor(seconds / 86400)}d`;
   };
-
-  const getIcon = (type: string) => (type === "like" ? "❤️" : "💬");
 
   const timeAgo = (date: string) => {
     const seconds = Math.floor((Date.now() - new Date(date).getTime()) / 1000);
