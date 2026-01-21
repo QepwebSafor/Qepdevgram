@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Suplatzigram",
-  description: "App inspirada en Instagram - Curso de Supabase de Platzi",
+  title: "Qepdevgram",
+  description: "App inspirada en Instagram creada con Supabase y Next.js",
 };
 
 export default function RootLayout({

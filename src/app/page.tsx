@@ -238,7 +238,7 @@ export default function Home() {
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
           <div className="w-10"></div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Suplatzigram
+            Qepdevgram
           </h1>
           <NotificationBell />
         </div>
