@@ -5,7 +5,7 @@ import { Post, Comment } from "@/types";
 import { supabase } from "@/lib/client";
 import { PostCard } from "@/components/PostCard";
 import { NotificationBell } from "@/components/NotificationBell";
-
+import Image from "next/image";
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
@@ -235,8 +235,15 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-card-bg border-b border-border">
-        <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="w-10"></div>
+        
+       <div className=" flex-shrink-0 flex items-center">
+           <Image
+              src="/pnglogoxxxs.fw.png"
+              alt="Qepdev Logo"
+              width={40}
+              height={40}
+              className="navbar-brand  m-2 "
+            />
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Qepdevgram
           </h1>
